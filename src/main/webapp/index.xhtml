@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   template="/WEB-INF/templates/default.xhtml">
+   <ui:define name="content">
+      <h1>Welcome to JSF Component Finder!</h1>
+
+      <div>
+         <h3>Your application can run on ANY Java EE 6 APPLICATION SERVER!!</h3>
+      </div>
+
+      <h:form id="componentFinderForm">
+         <h:panelGrid columns="2" columnClasses="titleCell">
+            <h:outputLabel id="label1" for="input1" value="input1:"/>
+            <h:inputText id="input1" />
+
+            <h:outputLabel id="label2" for="input2" value="input2:"/>
+            <h:inputText id="input2" />
+
+            <h:outputLabel id="label3" for="input3" value="input3:"/>
+            <h:inputText id="input3" />
+         </h:panelGrid>
+
+         <p>
+            <h:panelGrid columns="3">
+               <h:outputLabel id="labelFind" for="findText" value="Relative ID:"/>
+               <h:inputText id="findText" value="#{componentFinder.componentId}" />
+               <h:commandButton id="findButton" action="#{componentFinder.find}"
+                                value="Find" styleClass="register" reRender="resultText" />
+                                
+               <h:outputLabel id="labelResult" for="resultText" value="Absolute ID:"/>
+               <h:outputText id="resultText" value="#{componentFinder.result}" />
+            </h:panelGrid>
+         </p>
+      </h:form>
+   </ui:define>
+</ui:composition>
